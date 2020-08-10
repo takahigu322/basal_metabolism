@@ -29,13 +29,13 @@ class BasicHome extends StatefulWidget {
 }
 
 class _BasicHomeState extends State<BasicHome> {
-  static var _weightController = TextEditingController();
-  static var _heightController = TextEditingController();
-  static var _ageController = TextEditingController();
+  var _weightController = TextEditingController();
+  var _heightController = TextEditingController();
+  var _ageController = TextEditingController();
 
-  var _weight = "";
-  var _height = "";
-  var _age = "";
+  double _weight = 0;
+  double _height = 0;
+  int _age = 0;
   //static String hge = "";
 
   @override
@@ -54,10 +54,12 @@ class _BasicHomeState extends State<BasicHome> {
     print("dispose");
   }
 
+  //int hoge = _weightController.toInt();
+
   //Repository().plaseAddApiProvider(int.parse("dd"));
-  int weight = int.parse(_weightController.text); //ここが原因でエラー？formaterrorが出力
-  int height = int.parse(_heightController.text);
-  int age = int.parse(_ageController.text);
+  //int weight = int.parse(_weightController.text); //ここが原因でエラー？formaterrorが出力
+  //int height = int.parse(_heightController.text);
+  //int age = int.parse(_ageController.text);
 
   //static int basal() {
   //return 13397 * weight + 4799 * height - age * 56677 + 88362;
@@ -154,20 +156,31 @@ class _BasicHomeState extends State<BasicHome> {
                       () {
                         //_weight = _weightController.text;
                         //_height = _heightController.text;
+                        _weight = double.parse(_weightController.text);
+                        _height = double.parse(_heightController.text);
+                        _age = int.parse(_ageController.text);
 
-                        print(weight);
-                        print(height);
-                        print(age);
+                        if (_age == 0) {
+                          print("年齢を入力して");
+                        }
+
+                        print(_weight);
+                        print(_height);
+                        print(_age);
+                        print(_age * _height);
+
                         //print(basal());
                         //print('weight is int: ${weight is int}');
                       },
                     ),
                   ),
                 ),
+
                 Padding(
                   padding: EdgeInsets.all(10),
-                  //child: Text(
-                  //  "あなたの基礎代謝は" + basal().toString() + "(kcal)です"), //文字列へ
+                  child: Text("あなたの基礎代謝は" +
+                      _age.toString() +
+                      "(kcal)です"), //文字列へ,元々はbasal().toString()
                   //child: Text("あなたの基礎代謝は「" + _basal + "」です"),
                 ),
                 //Padding(
