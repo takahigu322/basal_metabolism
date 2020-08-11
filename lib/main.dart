@@ -36,6 +36,7 @@ class _BasicHomeState extends State<BasicHome> {
   double _weight = 0;
   double _height = 0;
   int _age = 0;
+  int base_number = 10;
   //static String hge = "";
 
   @override
@@ -179,7 +180,14 @@ class _BasicHomeState extends State<BasicHome> {
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: Text("あなたの基礎代謝は" +
-                      _age.toString() +
+                      (((13.397 * _weight +
+                                          4.799 * _height -
+                                          5.677 * _age +
+                                          88.362) *
+                                      base_number)
+                                  .round() /
+                              base_number)
+                          .toString() +
                       "(kcal)です"), //文字列へ,元々はbasal().toString()
                   //child: Text("あなたの基礎代謝は「" + _basal + "」です"),
                 ),
