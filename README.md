@@ -15,6 +15,8 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## Qiita記事
+https://qiita.com/takahigu642/items/61be593ef8ec31c2240d
 
 ## screen shot
 ![image](https://user-images.githubusercontent.com/49305519/89895501-e524b200-dc16-11ea-9665-6444892fb6c9.png)
